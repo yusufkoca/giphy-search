@@ -28,7 +28,7 @@ const GifContextProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (category !== "" || debouncedKeyword.length >= 3) {
       fetch(
-        `http://api.giphy.com/v1/gifs/search?q=${
+        `${process.env.REACT_APP_GIPHY_API_URL}gifs/search?q=${
           category || debouncedKeyword
         }&limit=25&offset=${page}&api_key=${
           process.env.REACT_APP_GIPHY_API_KEY

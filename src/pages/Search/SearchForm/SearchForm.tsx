@@ -6,9 +6,19 @@ import MenuItem from "@material-ui/core/MenuItem";
 import React, { useContext } from "react";
 import { GifContext } from "../../../contexts/gif/GifContext";
 import { gifActions } from "../../../contexts/gif/gifReducer";
-import { Box } from "@material-ui/core";
+import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    inputItem: {
+      marginRight: theme.spacing(1),
+      minWidth: 150,
+    },
+  })
+);
 
 const SearchForm = () => {
+  const classes = useStyles();
   const { dispatch, gifState } = useContext(GifContext);
   const { keyword, category } = gifState;
 
@@ -25,8 +35,9 @@ const SearchForm = () => {
         label="Keyword"
         value={keyword}
         onChange={(event) => handleKeywordChange(event.target.value)}
+        className={classes.inputItem}
       />
-      <FormControl>
+      <FormControl className={classes.inputItem}>
         <InputLabel id="category-select-label">Category</InputLabel>
         <Select
           labelId="category-select-label"

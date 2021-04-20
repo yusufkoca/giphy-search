@@ -11,10 +11,13 @@ const Router = () => {
             renders the first one that matches the current URL. */}
         <Switch>
           <Layout>
-            <Route path="/search">
+            <Route path="/" exact>
               <SearchPage />
             </Route>
-            <Route path="/favorites">
+            <Route path="/search" exact>
+              <SearchPage />
+            </Route>
+            <Route path="/favorites" exact>
               <FavoritesPage></FavoritesPage>
             </Route>
           </Layout>

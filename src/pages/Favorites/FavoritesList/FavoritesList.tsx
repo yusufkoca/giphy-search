@@ -40,7 +40,7 @@ const FavoritesList = () => {
         cols={5}
       >
         <GridListTile key="Subheader" cols={5} style={{ height: "auto" }}>
-          <ListSubheader component="div">Results</ListSubheader>
+          <ListSubheader component="div">Your Favorites</ListSubheader>
         </GridListTile>
         {favoriteGifs.map((gif, index) => (
           <GridListTile key={index} cols={1}>
