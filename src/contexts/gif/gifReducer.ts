@@ -10,6 +10,7 @@ export type GifState = {
     total_count: number;
   };
   page: number;
+  loading: boolean;
 };
 
 export type Action = {
@@ -25,6 +26,7 @@ export const gifReducer = (state: GifState, action: Action) => {
         keyword: action.payload,
         category: "",
         page: 0,
+        loading: action.payload.length >= 3 ? true : false,
       };
     case gifActions.SET_CATEGORY:
       return {
@@ -32,16 +34,19 @@ export const gifReducer = (state: GifState, action: Action) => {
         category: action.payload,
         keyword: "",
         page: 0,
+        loading: true,
       };
     case gifActions.SET_GIFS:
       return {
         ...state,
         gifs: action.payload,
+        loading: false,
       };
     case gifActions.ADD_GIFS:
       return {
         ...state,
         gifs: [...state.gifs, ...action.payload],
+        loading: false,
       };
     case gifActions.SET_PAGINATION:
       return {

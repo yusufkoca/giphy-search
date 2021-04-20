@@ -13,6 +13,7 @@ const initialState = {
   category: "",
   pagination: { count: 25, offset: 0, total_count: 0 },
   page: 0,
+  loading: false,
 };
 
 export const GifContext = createContext<GifContextValues>({

@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/FavoriteOutlined";
 import NotFavoriteIcon from "@material-ui/icons/FavoriteBorder";
 import { FavoriteContext } from "../../../contexts/favorites/FavoriteContext";
+import { LinearProgress } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,8 +37,8 @@ const SearchResults = () => {
 
   const { favoriteGifs, toggleFavorite } = useContext(FavoriteContext);
   const { gifState, dispatch } = useContext(GifContext);
-  const { gifs, pagination } = gifState;
-
+  const { gifs, pagination, loading } = gifState;
+  if (loading) return <LinearProgress></LinearProgress>;
   return (
     <div className={classes.root}>
       <InfiniteScroll
