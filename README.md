@@ -1,3 +1,14 @@
+Giphy Search is a React App that provides users gif search capabilities via [Giphy API](https://developers.giphy.com/).
+It also has a feature to add gifs you like to your favorites, and they will be stored on browser local storage.
+
+Demo Link -> https://giphy-searchy.netlify.app/
+
+## JS Stack
+
+- React
+- Typescript
+- Material-UI
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
